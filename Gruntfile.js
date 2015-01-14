@@ -1,6 +1,11 @@
 /* global module:false */
 module.exports = function(grunt) {
 	var port = grunt.option('port') || 8000;
+
+  require('time-grunt')(grunt);
+
+  require('load-grunt-tasks')(grunt);
+
 	// Project configuration
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -47,7 +52,8 @@ module.exports = function(grunt) {
 					'css/theme/sky.css': 'css/theme/source/sky.scss',
 					'css/theme/moon.css': 'css/theme/source/moon.scss',
 					'css/theme/solarized.css': 'css/theme/source/solarized.scss',
-					'css/theme/blood.css': 'css/theme/source/blood.scss'
+					'css/theme/blood.css': 'css/theme/source/blood.scss',
+					'css/theme/jimmi.css': 'css/theme/source/jimmi.scss'
 				}
 			}
 		},
@@ -96,15 +102,16 @@ module.exports = function(grunt) {
 				options: {
 					port: port,
 					base: '.',
-                    livereload: true,
-                    open: true
+          hostname: '127.0.0.1',
+          livereload: true,
+          open: true
 				}
 			}
 		},
 
 		zip: {
 			'reveal-js-presentation.zip': [
-				'index.html',
+				'*.html',
 				'css/**',
 				'js/**',
 				'lib/**',
@@ -114,9 +121,9 @@ module.exports = function(grunt) {
 		},
 
 		watch: {
-            options: {
-                livereload: true
-            },
+      options: {
+        livereload: true
+      },
 			js: {
 				files: [ 'Gruntfile.js', 'js/reveal.js' ],
 				tasks: 'js'
@@ -129,23 +136,12 @@ module.exports = function(grunt) {
 				files: [ 'css/reveal.scss' ],
 				tasks: 'css-core'
 			},
-            html: {
-                files: [ 'index.html']
-            }
+      html: {
+        files: [ '*.html']
+      }
 		}
 
 	});
-
-	// Dependencies
-	grunt.loadNpmTasks( 'grunt-contrib-qunit' );
-	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
-	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
-	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
-	grunt.loadNpmTasks( 'grunt-contrib-watch' );
-	grunt.loadNpmTasks( 'grunt-sass' );
-	grunt.loadNpmTasks( 'grunt-contrib-connect' );
-	grunt.loadNpmTasks( 'grunt-autoprefixer' );
-	grunt.loadNpmTasks( 'grunt-zip' );
 
 	// Default task
 	grunt.registerTask( 'default', [ 'css', 'js' ] );

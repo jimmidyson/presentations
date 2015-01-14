@@ -1,0 +1,62 @@
+@font-face {
+	font-family: 'Quicksand';
+	font-style: normal;
+	font-weight: 400;
+	src:
+		local('Quicksand Regular'),
+		local('Quicksand-Regular'),
+		/* from  */
+		url('../../fonts/Quicksand_400.eot?#iefix') format('embedded-opentype'),
+		/* from http://fonts.gstatic.com/s/quicksand/v5/sKd0EMYPAh5PYCRKSryvWz8E0i7KZn-EPnyo3HZu7kw.woff */
+		url('../../fonts/Quicksand_400.woff') format('woff'),
+		/* from http://fonts.gstatic.com/s/quicksand/v5/sKd0EMYPAh5PYCRKSryvW6CWcynf_cDxXwCLxiixG1c.ttf */
+		url('../../fonts/Quicksand_400.ttf') format('truetype'),
+		/* from http://fonts.gstatic.com/l/font?kit=sKd0EMYPAh5PYCRKSryvW5bd9NUM7myrQQz30yPaGQ4#Quicksand */
+		url('../../fonts/Quicksand_400.svg#Quicksand') format('svg');
+}
+@font-face {
+	font-family: 'Quicksand';
+	font-style: normal;
+	font-weight: 700;
+	src:
+		local('Quicksand Bold'),
+		local('Quicksand-Bold'),
+		/* from  */
+		url('../../fonts/Quicksand_700.eot?#iefix') format('embedded-opentype'),
+		/* from http://fonts.gstatic.com/s/quicksand/v5/32nyIRHyCu6iqEka_hbKsnhCUOGz7vYGh680lGh-uXM.woff */
+		url('../../fonts/Quicksand_700.woff') format('woff'),
+		/* from http://fonts.gstatic.com/s/quicksand/v5/32nyIRHyCu6iqEka_hbKsonF5uFdDttMLvmWuJdhhgs.ttf */
+		url('../../fonts/Quicksand_700.ttf') format('truetype'),
+		/* from http://fonts.gstatic.com/l/font?kit=32nyIRHyCu6iqEka_hbKsllIn5tFQcqMuf-jhyJP0ps#Quicksand */
+		url('../../fonts/Quicksand_700.svg#Quicksand') format('svg');
+}
+@font-face {
+	font-family: 'Quicksand';
+	font-style: italic;
+	font-weight: 400;
+	src:
+		local(''),
+		/* from  */
+		url('../../fonts/Quicksand_400italic.eot?#iefix') format('embedded-opentype'),
+		/* from  */
+		url('../../fonts/Quicksand_400italic.woff') format('woff'),
+		/* from  */
+		url('../../fonts/Quicksand_400italic.ttf') format('truetype'),
+		/* from  */
+		url('../../fonts/Quicksand_400italic.svg#') format('svg');
+}
+@font-face {
+	font-family: 'Quicksand';
+	font-style: italic;
+	font-weight: 700;
+	src:
+		local(''),
+		/* from  */
+		url('../../fonts/Quicksand_700italic.eot?#iefix') format('embedded-opentype'),
+		/* from  */
+		url('../../fonts/Quicksand_700italic.woff') format('woff'),
+		/* from  */
+		url('../../fonts/Quicksand_700italic.ttf') format('truetype'),
+		/* from  */
+		url('../../fonts/Quicksand_700italic.svg#') format('svg');
+}
