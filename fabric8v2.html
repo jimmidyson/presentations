@@ -103,10 +103,212 @@
 						![Docker](images/docker-logo.svg)<!-- .element: class="no-border fragment" height="500px" style="vertical-align: middle" -->
 
 						Note:
-						- Fantastic devops tool
-						- 
+						- Self-contained image format - just enough to run the app
+						- API for building images, managing containers
+						- Fantastic devops tool - devs care about what's inside the container, ops care about what's outside the container
+						- But it's focused on single host
+						- Immutable deployments
+						- Environment variables to change behaviour
 					</script>
 				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## Along came...
+
+						![Kubernetes](images/kubernetes-logo.svg)<!-- .element: class="no-border fragment" height="500px" style="vertical-align: middle" -->
+
+						Note:
+						- Open sourced June 2014
+						- Wide industry backing
+						- Red Hat second largest contributor behind Google
+						- "Manage a cluster of Linux containers as a single system to accelerate Dev and simplify Ops"
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## Kubernetes concepts
+
+						#### Pods <!-- .element: class="no-border fragment" -->
+						#### Replication Controllers <!-- .element: class="no-border fragment" -->
+						#### Services <!-- .element: class="no-border fragment" -->
+
+						Note:
+						- Declarative definition of resources with JSON or YAML
+						- Well-defined REST API for all operations
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## Pods
+
+						#### Group of containers that are scheduled on to the same host <!-- .element: class="no-border fragment" -->
+						#### Containers in a pod share resources, such as storage volumes & IP addresses <!-- .element: class="no-border fragment" -->
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## Pod definition
+
+						````json
+{
+  "id": "karaf-pod",
+  "kind": "Pod",
+  "apiVersion": "v1beta1",
+  "desiredState": {
+    "manifest": {
+      "version": "v1beta1",
+      "id": "karaf-container",
+      "containers": [{
+        "name": "karaf",
+        "image": "fabric8/karaf-2.4:2.0.19",
+        "ports": [{
+          "name": "http",
+          "containerPort": 8181
+        }]
+      }]
+    }
+  }
+}
+						````
+
+						Note:
+						- Notice the Kind
+						- Pod ID - only going to be one in whole cluster
+						- Desired state - declaratively telling Kubernetes what to schedule
+						- Image - docker image
+						- Ports - what ports the container exposes - this will be important when we look at services
+						- Pod dies - not restarted
+						- Volume definitions for shared disk between containers
+						- Share IP address between containers - means containers in a pod can't expose same ports
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## Replication Controllers
+
+						#### Ensures that a specified number of pod "replicas" are running at any one time <!-- .element: class="no-border fragment" -->
+						#### Labels are used to monitor the state of running containers <!-- .element: class="no-border fragment" -->
+						#### Replaces Fabric8 auto-scaling <!-- .element: class="no-border fragment" -->
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## Replication controller definition
+
+						````json
+{
+  "id": "karafRC",
+  "kind": "ReplicationController",
+  "apiVersion": "v1beta1",
+  "desiredState": {
+    "replicas": 2,
+    "replicaSelector": {"name": "karaf"},
+    "podTemplate": {
+      "desiredState": {
+        "manifest": {
+          <SNIP POD DEFINITION>
+        }
+      },
+      "labels": { "name": "karaf" }
+    }
+  },
+  "labels": {"name": "karaf" }
+}
+						````
+
+						Note:
+						- ID - only going to be one in whole cluster
+						- Desired state - declaratively telling Kubernetes what to schedule
+						- Replicas - number of replicas required - can scale this up/down at runtime
+						- Pod template - same as pod definition
+						- Labels - that's what is used to ensure required replicas are up
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## Services
+
+						#### Load-balance across selected pods <!-- .element: class="no-border fragment" -->
+						#### Provides bridge from both Kubernetes-native & non-Kubernetes-native applications to Kubernetes containers <!-- .element: class="no-border fragment" -->
+						#### Load-balanced pods are determined by a label selector <!-- .element: class="no-border fragment" -->
+						#### Available in every container via env vars <!-- .element: class="no-border fragment" --> `<SERVICENAME>_SERVICE_HOST`, `<SERVICENAME>_SERVICE_PORT`
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## Service definition
+
+						````json
+{
+  "id": "karafService",
+  "selector": {
+    "name": "karaf"
+  },
+  "containerPort": 8181,
+  "protocol": "TCP",
+  "port": 80
+}
+						````
+
+						Note:
+						- ID - only going to be one in whole cluster
+						- Selector - used to target load-balanced pods
+						- Container port - what port in the pod to load balance
+						- Protocol - TCP or UDP
+						- Port - what port the servce listens on
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## Config
+
+						#### Convenience to define multiple items in one file <!-- .element: class="no-border fragment" -->
+						#### Each item is independently persisted <!-- .element: class="no-border fragment" -->
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## Config definition
+
+						````json
+{
+  "apiVersion": "v1beta1",
+  "kind": "Config",
+  "id": "karaf-config",
+  "items": [
+    {
+      "apiVersion": "v1beta1",
+      "kind": "ReplicationController",
+      <SNIP DEFINITION>
+    },
+    {
+      "apiVersion": "v1beta1",
+      "kind": "Service",
+      <SNIP DEFINITION>
+    }
+  ]
+}
+						````
+
+						Note:
+						- ID - only going to be one in whole cluster
+						- Selector - used to target load-balanced pods
+						- Container port - what port in the pod to load balance
+						- Protocol - TCP or UDP
+						- Port - what port the servce listens on
+					</script>
+				</section>
+
 			</div>
 
 		</div>
