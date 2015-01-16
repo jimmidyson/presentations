@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 300 106"
+   id="svg3134"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   width="100%"
+   height="100%"
+   sodipodi:docname="Maven_logo.svg">
+  <metadata
+     id="metadata3148">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs3146" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1025"
+     id="namedview3144"
+     showgrid="false"
+     inkscape:zoom="3.8051948"
+     inkscape:cx="231"
+     inkscape:cy="53"
+     inkscape:window-x="0"
+     inkscape:window-y="31"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g3136" />
+  <g
+     font-style="oblique"
+     font-weight="bold"
+     id="g3136"
+     style="font-style:oblique;font-weight:bold;font-family:Verdana">
+    <text
+       font-size="96"
+       transform="scale(0.94319807,1.0602227)"
+       x="22.610308"
+       y="75.984039"
+       id="text3138"
+       style="font-size:95.97983551px">m</text>
+    <text
+       font-size="80"
+       word-spacing="0"
+       x="101"
+       y="80"
+       id="text3140"
+       style="font-size:80px;word-spacing:0"><tspan
+   id="tspan3142"
+   style="fill:#ff6804">a</tspan>
+ven</text>
+    <text
+       style="font-size:95.97983551px"
+       id="text3150"
+       y="75.984039"
+       x="22.610308"
+       transform="scale(0.94319807,1.0602227)"
+       font-size="96">m</text>
+    <text
+       style="font-size:80px;word-spacing:0"
+       id="text3152"
+       y="80"
+       x="101"
+       word-spacing="0"
+       font-size="80"><tspan
+   style="fill:#ff6804"
+   id="tspan3154">a</tspan>
+ven</text>
+  </g>
+</svg>

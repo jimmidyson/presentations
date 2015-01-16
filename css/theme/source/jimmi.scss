@@ -57,8 +57,16 @@ $selectionBackgroundColor: #134674;
   }
 }
 
-.reveal section img.no-border {
+.reveal section img.no-border, .reveal .icon-list img {
   border: none;
   box-shadow: none;
   background: inherit;
+}
+
+.reveal .icon-list img {
+  height: 100px;
+}
+
+.reveal .questions h4 {
+  text-transform: none;
 }

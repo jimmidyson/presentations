@@ -135,7 +135,7 @@ body {
   width: 90%;
   margin: 20px auto;
   text-align: left;
-  font-size: 0.5em;
+  font-size: 0.55em;
   font-family: monospace;
   line-height: 1.2em;
   word-wrap: break-word;
@@ -276,7 +276,13 @@ body {
   #fixed-logo > img {
     height: 60px; }
 
-.reveal section img.no-border {
+.reveal section img.no-border, .reveal .icon-list img {
   border: none;
   box-shadow: none;
   background: inherit; }
+
+.reveal .icon-list img {
+  height: 100px; }
+
+.reveal .questions h4 {
+  text-transform: none; }
