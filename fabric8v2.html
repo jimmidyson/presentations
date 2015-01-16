@@ -100,7 +100,7 @@
 					<script type="text/template">
 						## And then there was...
 
-						![Docker](images/docker-logo.svg)<!-- .element: class="no-border fragment" height="500px" style="vertical-align: middle" -->
+						![Docker](images/docker-logo.svg)<!-- .element: class="no-border fragment" height="500px" style="vertical-align: middle;margin-top:-50px;" -->
 
 						Note:
 						- Self-contained image format - just enough to run the app
@@ -116,13 +116,24 @@
 					<script type="text/template">
 						## Along came...
 
-						![Kubernetes](images/kubernetes-logo.svg)<!-- .element: class="no-border fragment" height="500px" style="vertical-align: middle" -->
+						![Kubernetes](images/kubernetes-logo.svg)<!-- .element: class="no-border fragment" height="500px" style="vertical-align: middle;margin-top: -50px;" -->
 
 						Note:
 						- Open sourced June 2014
 						- Wide industry backing
 						- Red Hat second largest contributor behind Google
 						- "Manage a cluster of Linux containers as a single system to accelerate Dev and simplify Ops"
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## How does Fabric8 V2 fit in? <!-- .element: class="no-border fragment fade-out" data-fragment-index="1" -->
+						## <!-- .element: style="margin-top:-150px" --><span class="no-border fragment" data-fragment-index="1">Fabric8 provides an integration and management platform</span> <span class="no-border fragment">above a Kubernetes compatible platform</span></span>
+
+						Note:
+						- Same purpose as Fabric8 always had
+						- Just now doesn't need to worry about orchestration or management of containers, can leave that up to Kubernetes
 					</script>
 				</section>
 
@@ -192,7 +203,7 @@
 						## Replication Controllers
 
 						#### Ensures that a specified number of pod "replicas" are running at any one time <!-- .element: class="no-border fragment" -->
-						#### Labels are used to monitor the state of running containers <!-- .element: class="no-border fragment" -->
+						#### Labels are used to monitor the state of running pods <!-- .element: class="no-border fragment" -->
 						#### Replaces Fabric8 auto-scaling <!-- .element: class="no-border fragment" -->
 					</script>
 				</section>
