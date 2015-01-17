@@ -39,8 +39,6 @@ $selectionBackgroundColor: #134674;
 	@include radial-gradient( #add9e4, #f7fbfc );
 }
 
-
-
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------
@@ -52,15 +50,15 @@ $selectionBackgroundColor: #134674;
 	left: .5em;
 	z-index: 1000;
 
-  > img {
+  img {
 		height: 60px;
   }
 }
 
-.reveal section img.no-border, .reveal .icon-list img {
+.reveal section img {
   border: none;
   box-shadow: none;
-  background: inherit;
+  background-color: inherit;
 }
 
 .reveal .icon-list img {
@@ -70,3 +68,7 @@ $selectionBackgroundColor: #134674;
 .reveal .questions h4 {
   text-transform: none;
 }
+
+.reveal pre {
+  font-size: 0.5em;
+  }

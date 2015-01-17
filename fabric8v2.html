@@ -38,13 +38,13 @@
 
 		<div class="reveal">
 
-			<p id="fixed-logo"><img src="images/fabric8_logo.svg"></img></p>
+			<p id="fixed-logo"><a href="http://fabric8.io/v2/"><img src="images/fabric8_logo.svg"></img></a></p>
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section data-markdown>
 					<script type="text/template">
-						[![Fabric8 - v2](images/fabric8_logo.svg)<!-- .element: class="no-border" -->](http://fabric8.io/)
+						[![Fabric8 - v2](images/fabric8_logo.svg)](http://fabric8.io/)
 
 						## Version 2
 						[Jimmi Dyson](https://jimmidyson.github.io/) / [@jimmidyson](https://twitter.com/jimmidyson)
@@ -53,10 +53,10 @@
 
 				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
 					<script type="text/template">
-						# In the beginning...
+						## In the beginning...
 
 						## ...there was <!-- .element: class="fragment" data-fragment-index="1" -->
-						![Karaf](images/karaf-logo.png)<!-- .element: class="no-border fragment" data-fragment-index="1" -->
+						[![Karaf](images/karaf-logo.png)<!-- .element: class="fragment" data-fragment-index="1" -->](http://karaf.apache.org/)
 
 						Note:
 						- Added clustering support to Karaf
@@ -69,11 +69,11 @@
 					<script type="text/template">
 						## Then along came...
 
-						![Tomcat](images/tomcat-logo.svg)<!-- .element: class="no-border fragment" width="150px" style="vertical-align: middle" -->
-						![Tomee](images/tomee-logo.png)<!-- .element: class="no-border fragment" width="300px" style="vertical-align: middle" -->
+						[![Tomcat](images/tomcat-logo.svg)<!-- .element: class="fragment" width="150px" style="vertical-align: middle" -->](http://tomcat.apache.org/)
+						[![Tomee](images/tomee-logo.png)<!-- .element: class="fragment" width="300px" style="vertical-align: middle" -->](http://tomee.apache.org/)
 
-						![Jetty](images/jetty-logo.svg)<!-- .element: class="no-border fragment" width="300px" style="vertical-align: middle" -->
-						![Wildfly](images/wildfly_logo.svg)<!-- .element: class="no-border fragment" width="150px" style="vertical-align: middle" -->
+						[![Jetty](images/jetty-logo.svg)<!-- .element: class="fragment" width="300px" style="vertical-align: middle" -->](http://eclipse.org/jetty/)
+						[![Wildfly](images/wildfly_logo.svg)<!-- .element: class="fragment" width="150px" style="vertical-align: middle" -->](http://wildfly.org/)
 
 						Note:
 						- Never productised
@@ -86,8 +86,8 @@
 					<script type="text/template">
 						## And of course...
 
-						![Spring Boot](images/spring-boot-logo.svg)<!-- .element: class="no-border fragment" height"300px" style="vertical-align: middle" -->
-						![Java](images/java-logo.svg)<!-- .element: class="no-border fragment" height="300px" style="vertical-align: middle" -->
+						[![Spring Boot](images/spring-boot-logo.svg)<!-- .element: class="fragment" height"300px" style="vertical-align: middle" -->](http://projects.spring.io/spring-boot/)
+						[![Java](images/java-logo.svg)<!-- .element: class="fragment" height="300px" style="vertical-align: middle" -->](https://java.com/en/download/)
 
 						Note:
 						- A wide coverage of the Java ecosystem
@@ -100,7 +100,7 @@
 					<script type="text/template">
 						## And then there was...
 
-						![Docker](images/docker-logo.svg)<!-- .element: class="no-border fragment" height="500px" style="vertical-align: middle;margin-top:-50px;" -->
+						[![Docker](images/docker-logo.svg)<!-- .element: class="fragment" height="500px" style="vertical-align: middle;margin-top:-50px;" -->](https://www.docker.com/)
 
 						Note:
 						- Self-contained image format - just enough to run the app
@@ -114,9 +114,9 @@
 
 				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
 					<script type="text/template">
-						## Along came...
+						## But then...
 
-						![Kubernetes](images/kubernetes-logo.svg)<!-- .element: class="no-border fragment" height="500px" style="vertical-align: middle;margin-top: -50px;" -->
+						[![Kubernetes](images/kubernetes-logo.svg)<!-- .element: class="fragment" height="500px" style="vertical-align: middle;margin-top: -50px;" -->](http://kubernetes.io)
 
 						Note:
 						- Open sourced June 2014
@@ -128,8 +128,8 @@
 
 				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
 					<script type="text/template">
-						## How does Fabric8 V2 fit in? <!-- .element: class="no-border fragment fade-out" data-fragment-index="1" -->
-						## <!-- .element: style="margin-top:-150px" --><span class="no-border fragment" data-fragment-index="1">Fabric8 provides an integration and management platform</span> <span class="no-border fragment">above a Kubernetes compatible platform</span></span>
+						## How does Fabric8 V2 fit in? <!-- .element: class="fragment fade-out" data-fragment-index="1" -->
+						## <!-- .element: style="margin-top:-150px" --><span class="fragment" data-fragment-index="1">Fabric8 provides an integration and management platform</span> <span class="fragment">above a Kubernetes compatible platform</span></span>
 
 						Note:
 						- Same purpose as Fabric8 always had
@@ -141,9 +141,9 @@
 					<script type="text/template">
 						## Kubernetes concepts
 
-						#### Pods <!-- .element: class="no-border fragment" -->
-						#### Replication Controllers <!-- .element: class="no-border fragment" -->
-						#### Services <!-- .element: class="no-border fragment" -->
+						#### Pods <!-- .element: class="fragment" -->
+						#### Replication Controllers <!-- .element: class="fragment" -->
+						#### Services <!-- .element: class="fragment" -->
 
 						Note:
 						- Declarative definition of resources with JSON or YAML
@@ -155,10 +155,10 @@
 					<script type="text/template">
 						## Pods
 
-						#### Group of containers that are scheduled on to the same host <!-- .element: class="no-border fragment" -->
-						#### Containers in a pod share resources, such as storage volumes & IP addresses <!-- .element: class="no-border fragment" -->
-						#### Containers in a pod can communicate via localhost <!-- .element: class="no-border fragment" -->
-						#### Guaranteed fate sharing <!-- .element: class="no-border fragment" -->
+						#### Group of containers that are scheduled on to the same host <!-- .element: class="fragment" -->
+						#### Containers in a pod share resources, such as storage volumes & IP addresses <!-- .element: class="fragment" -->
+						#### Containers in a pod can communicate via localhost <!-- .element: class="fragment" -->
+						#### Guaranteed fate sharing <!-- .element: class="fragment" -->
 					</script>
 				</section>
 
@@ -204,9 +204,9 @@
 					<script type="text/template">
 						## Replication Controllers
 
-						#### Ensures that a specified number of pod "replicas" are running at any one time <!-- .element: class="no-border fragment" -->
-						#### Pods that a replication controller monitors are defined with a label selector <!-- .element: class="no-border fragment" -->
-						#### Replaces Fabric8 auto-scaling <!-- .element: class="no-border fragment" -->
+						#### Ensures that a specified number of pod "replicas" are running at any one time <!-- .element: class="fragment" -->
+						#### Pods that a replication controller monitors are defined with a label selector <!-- .element: class="fragment" -->
+						#### Replaces Fabric8 auto-scaling <!-- .element: class="fragment" -->
 					</script>
 				</section>
 
@@ -248,10 +248,10 @@
 					<script type="text/template">
 						## Services
 
-						#### Load-balance across selected pods <!-- .element: class="no-border fragment" -->
-						#### Provides bridge from both Kubernetes-native & non-Kubernetes-native applications to Kubernetes containers <!-- .element: class="no-border fragment" -->
-						#### Load-balanced pods are determined by a label selector <!-- .element: class="no-border fragment" -->
-						#### Available in every container via env vars <!-- .element: class="no-border fragment" --> `<SERVICENAME>_SERVICE_HOST`, `<SERVICENAME>_SERVICE_PORT`
+						#### Provides bridge from both Kubernetes-native & non-Kubernetes-native applications to ephemeral Kubernetes pods <!-- .element: class="fragment" -->
+						#### Load-balance across selected pods <!-- .element: class="fragment" -->
+						#### Load-balanced pods are determined by a label selector <!-- .element: class="fragment" -->
+						#### Available in every container via env vars <!-- .element: class="fragment" --> `<SERVICENAME>_SERVICE_HOST`, `<SERVICENAME>_SERVICE_PORT`
 					</script>
 				</section>
 
@@ -284,8 +284,8 @@
 					<script type="text/template">
 						## Config
 
-						#### Convenience to define multiple items in one file <!-- .element: class="no-border fragment" -->
-						#### Each item is independently persisted <!-- .element: class="no-border fragment" -->
+						#### Convenience to define multiple items in one file <!-- .element: class="fragment" -->
+						#### Each item is independently persisted <!-- .element: class="fragment" -->
 					</script>
 				</section>
 
@@ -324,17 +324,28 @@
 
 				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
 					<script type="text/template">
+						## Kubernetes compatible?
+
+						[![OpenShift3](images/openshift-logo.svg)<!-- .element class="fragment" -->](http://www.openshift.org/)
+						
+						#### Extends Kubernetes to provide development workflow from local development to builds to deployment <!-- .element class="fragment" -->
+						#### Projects, builds & deployments <!-- .element class="fragment" -->
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
 						## Fabric8 V2
 
-						![hawtio](images/hawtio_logo.svg)<!-- .element: class="no-border fragment" height="100px" style="vertical-align: middle;" -->
+						[![hawtio](images/hawtio_logo.svg)<!-- .element: class="fragment" height="100px" style="vertical-align: middle;" -->](http://hawt.io)
 
-						### <!-- .element: class="fragment" style="margin-top:-50px;" --> ![Maven](images/Maven_logo.svg)<!-- .element: class="no-border" width="200px" style="vertical-align: middle;" --> + ![Docker](images/docker-logo.svg)<!-- .element: class="no-border" width="200px" style="vertical-align: middle;" -->
+						### <!-- .element: class="fragment" style="margin-top:-50px;" --> [![Maven](images/Maven_logo.svg)<!-- .element: width="200px" style="vertical-align: middle;" -->](http://maven.apache.org/) + [![Docker](images/docker-logo.svg)<!-- .element: class="o-border" width="200px" style="vertical-align: middle;" -->](https://www.docker.com)
 
 						<span class="fragment icon-list">
-							![Karaf](images/karaf-icon.png) ![ActiveMQ](images/amq-logo.svg) ![Camel](images/camel-logo.svg)
+							[![Karaf](images/karaf-icon.png)](http://karaf.apache.org) [![ActiveMQ](images/amq-logo.svg)](http://activemq.apache.org) [![Camel](images/camel-logo.svg)](http://camel.apache.org/)
 						</span><span class="fragment icon-list">
-							![JenkinsCI](images/jenkins-logo.svg) ![Keycloak](images/keycloak-logo.svg) ![Spring Boot](images/spring-boot-logo.svg)
-							![Java](images/java-logo.svg) ![API registry](images/apiman-logo.svg)
+							[![JenkinsCI](images/jenkins-logo.svg)](http://jenkins-ci.org/) [![Keycloak](images/keycloak-logo.svg)](http://keycloak.jboss.org) [![Spring Boot](images/spring-boot-logo.svg)](http://projects.spring.io/spring-boot/)
+							[![Java](images/java-logo.svg)](https://java.com/download) [![API registry](images/apiman-logo.svg)](http://www.apiman.io/)
 						</span>
 						
 						Note:
@@ -349,9 +360,34 @@
 
 				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
 					<script type="text/template">
+						## Fabric8 Applications
+
+						#### Parameterized Kubernetes config <!-- .element class="fragment" -->
+						#### Maven plugin to package Docker images & application metadata <!-- .element class="fragment" -->
+						#### Enterprise app store <!-- .element class="fragment" -->
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
 						## Demo time!
 						
-						![Fabric8](images/fabric8_logo.svg) <!-- .element: class="no-border" -->
+						[![Fabric8](images/fabric8_logo.svg)](http://fabric8.io/v2/)
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:" class="questions">
+					<script type="text/template">
+						### One more plug...
+
+						[![hawtio](images/hawtio_logo.svg)<!-- .element: height="200px" style="vertical-align: middle;" -->](http://hawt.io)
+
+						## Version 2
+
+						https://github.com/hawtio/hawtio/blob/master/docs/Overview2dotX.md
+
+						Note:
+						- 
 					</script>
 				</section>
 
@@ -360,9 +396,10 @@
 						## Questions
 						
 						#### http://fabric8.io/
+						#### http://hawt.io/
+						#### http://www.openshift.org/
 						#### http://kubernetes.io/
 						#### http://docker.com/
-						#### http://www.openshift.org/
 						#### [@jimmidyson](https://twitter.com/jimmidyson)
 					</script>
 				</section>
