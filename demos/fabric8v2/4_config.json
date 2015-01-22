@@ -1,0 +1,72 @@
+{
+  "id": "fabric8SpringbootWebmvcIp-config",
+  "kind": "Config",
+  "apiVersion": "v1beta1",
+  "name": "fabric8SpringbootWebmvcIp-config",
+  "description": "Configuration for fabric8SpringbootWebmvcIp",
+  "items": [
+
+    {
+      "id": "spring-boot-webmvc-ip",
+      "apiVersion": "v1beta1",
+      "kind": "Service",
+      "containerPort": 8080,
+      "port": 80,
+      "selector": {
+        "container": "spring-boot", 
+        "quickstart": "webmvc-ip", 
+        "group": "quickstarts"
+      }
+    },
+    {
+      "id": "fabric8SpringbootWebmvcIp",
+      "kind": "ReplicationController",
+      "apiVersion": "v1beta1",
+      "desiredState": {
+        "replicas": 1,
+        "replicaSelector": {
+          "container": "spring-boot", 
+          "quickstart": "webmvc-ip", 
+          "group": "quickstarts"
+        },
+        "podTemplate": {
+          "desiredState": {
+            "manifest": {
+              "version": "v1beta1",
+              "id": "fabric8SpringbootWebmvcIpPod",
+              "containers": [
+                {
+                  "name": "fabric8-springboot-webmvc-ip",
+                  "image": "${env.DOCKER_REGISTRY}/fabric8/springboot-webmvc-ip:2.0.20",
+
+                  "env": [
+                  ],
+                  "ports": [
+                    {
+                      "containerPort": 8080
+    
+                    }, 
+                    {
+                      "containerPort": 8778
+    
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "labels": {
+            "container": "spring-boot", 
+            "quickstart": "webmvc-ip", 
+            "group": "quickstarts"
+          }
+        }
+      },
+      "labels": {
+        "container": "spring-boot", 
+        "quickstart": "webmvc-ip", 
+        "group": "quickstarts"
+      }
+    }
+  ]
+}

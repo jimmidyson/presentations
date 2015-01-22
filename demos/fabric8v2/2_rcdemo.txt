@@ -1,0 +1,5 @@
+kube get pods -ojson springboot-webmvc-pod|grep -Eo 'podIP.*'
+
+kube get pods -l "quickstart=webmvc-ip"
+
+

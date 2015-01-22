@@ -1,0 +1,42 @@
+{
+  "id": "fabric8SpringbootWebmvcIp",
+  "kind": "ReplicationController",
+  "apiVersion": "v1beta1",
+  "desiredState": {
+    "replicas": 10,
+    "replicaSelector": {
+      "container": "spring-boot",
+      "quickstart": "webmvc-ip",
+      "group": "quickstarts"
+    },
+    "podTemplate": {
+      "desiredState": {
+        "manifest": {
+          "version": "v1beta1",
+          "id": "fabric8SpringbootWebmvcIpPod",
+          "containers": [
+            {
+              "name": "fabric8-springboot-webmvc-ip",
+              "image": "fabric8/springboot-webmvc-ip:2.0.20",
+              "env": [ ],
+              "ports": [
+                { "containerPort": 8080 },
+                { "containerPort": 8778 }
+              ]
+            }
+          ]
+        }
+      },
+      "labels": {
+        "container": "spring-boot",
+        "quickstart": "webmvc-ip",
+        "group": "quickstarts"
+      }
+    }
+  },
+  "labels": {
+    "container": "spring-boot",
+    "quickstart": "webmvc-ip",
+    "group": "quickstarts"
+  }
+}

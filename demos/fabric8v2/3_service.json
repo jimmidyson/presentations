@@ -1,0 +1,18 @@
+{
+  "id": "spring-boot-webmvc-ip",
+  "apiVersion": "v1beta1",
+  "kind": "Service",
+  "containerPort": 8080,
+  "port": 80,
+  "selector": {
+    "container": "spring-boot",
+    "quickstart": "webmvc-ip",
+    "group": "quickstarts"
+  },
+  "labels": {
+    "container": "spring-boot",
+    "quickstart": "webmvc-ip",
+    "group": "quickstarts"
+  }
+}
+
