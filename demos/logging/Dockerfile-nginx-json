@@ -1,0 +1,5 @@
+FROM nginx
+MAINTAINER Jimmi Dyson <jimmidyson@gmail.com>
+
+COPY nginx-content /usr/share/nginx/html
+COPY nginx-json.conf /etc/nginx/nginx.conf

@@ -1,0 +1,4 @@
+FROM nginx
+MAINTAINER Jimmi Dyson <jimmidyson@gmail.com>
+
+COPY nginx-content /usr/share/nginx/html

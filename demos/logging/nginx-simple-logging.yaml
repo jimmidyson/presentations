@@ -1,0 +1,11 @@
+apiVersion: v1beta3
+kind: Pod
+metadata:
+  name: nginx-simple-logging
+spec:
+  containers:
+    - name: web
+      image: nginx:simple-logging
+      ports:
+        - name: web
+          containerPort: 80

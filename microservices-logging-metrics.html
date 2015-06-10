@@ -53,9 +53,27 @@
 
 				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
 					<script type="text/template">
-						## Logs?
+						## Thoughts on logging
 
-						> Logs are the stream of aggregated, time-ordered events collected from the output streams of all running processes and backing services
+						#### What a system is doing<!-- .element: class="fragment" -->
+						#### What happened<!-- .element: class="fragment" -->
+						### A record of actions & outcomes<!-- .element: class="fragment" -->
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## Define logs
+
+						> Logs are the stream of aggregated, time-ordered events collected from the output streams of running processes and backing services
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## Who uses logs?
+
+						### Anyone involved in creating, deploying & running software<!-- .element: class="fragment" -->
 					</script>
 				</section>
 
@@ -63,8 +81,11 @@
 					<script type="text/template">
 						## Traditional app logging
 
-						#### Logging strategies are defined by the application <!-- .element: class="fragment" -->
-						#### Storage & routing managed by the application <!-- .element: class="fragment" -->
+						#### Logging strategies are defined by the system<!-- .element: class="fragment" -->
+						#### Storage & routing managed by the system<!-- .element: class="fragment" -->
+						#### Write to local file<!-- .element: class="fragment" -->
+						#### Centralising<!-- .element: class="fragment" -->
+						#### Custom configuration per system<!-- .element: class="fragment" -->
 
 						Note:
 						- Fault diagnosis involves logging on to server
@@ -80,11 +101,13 @@
 					<script type="text/template">
 						## Container logging
 
-						#### <!-- .element: class="fragment" --> Logs to `stdout` & `stderr`
-						#### <!-- .element: class="fragment" --> Captured by execution environment
-						#### <!-- .element: class="fragment" --> Routed by execution environment
-						#### <!-- .element: class="fragment" --> Containers are ephemeral - so are logs
-						#### <!-- .element: class="fragment" --> So we have to centralise for viewing & archiving
+						####<!-- .element: class="fragment" --> Containers standardise management of your processes
+						####<!-- .element: class="fragment" --> So let's standardise logging
+						####<!-- .element: class="fragment" --> Logs to `stdout` & `stderr`
+						####<!-- .element: class="fragment" --> Captured by execution environment
+						####<!-- .element: class="fragment" --> Routed by execution environment
+						####<!-- .element: class="fragment" --> Containers are ephemeral - so are logs
+						####<!-- .element: class="fragment" --> So we have to centralise for viewing & archiving
 
 						Note:
 						- Need more context for stdout/stderr as no context derived from actual log file
@@ -124,7 +147,7 @@
 
 				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
 					<script type="text/template">
-						## Installation is easy
+						## Deployment is easy
 
 						#### RC & service for Elasticsearch<!-- .element: class="fragment" -->
 						#### RC & service for Kibana<!-- .element: class="fragment" -->
@@ -165,12 +188,11 @@
 					<script type="text/template">
 						## Parseable logging example
 
-						<pre><code style="word-wrap: break-word;">
-						127.0.0.1 - frank [10/Oct/2000:13:55:36 -0700] "GET /apache_pb.gif HTTP/1.0" 200 2326 "http://www.example.com/start.html" "Mozilla/4.08 [en] (Win98; I ;Nav)"
-						</code></pre>
+						<pre><code style="word-wrap: break-word;">127.0.0.1 - frank [10/Oct/2000:13:55:36 -0700] "GET /apache_pb.gif HTTP/1.0" 200 2326 "http://www.example.com/start.html" "Mozilla/4.08 [en] (Win98; I ;Nav)"</code></pre>
 
 						#### Log must be parsed to infer context <!-- .element: class="fragment" -->
 						#### Regular expressions can get funky <!-- .element: class="fragment" -->
+						<pre class="fragment"><code style="word-wrap: break-word;">^([0-9.]+)s([w.-]+)s([w.-]+)s([[^[]]+])s"((?:[^"]|")+)"s(d{3})s(d+|-)s"((?:[^"]|")+)"s"((?:[^"]|")+)"$</code></pre>
 						#### Multi-line logs, e.g. stack traces? <!-- .element: class="fragment" -->
 					</script>
 				</section>
@@ -201,16 +223,116 @@
 
 				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
 					<script type="text/template">
-						# Demo
+						## Centralised all your container logs in a technology agnostic way
+
+						#### Can we do the same for your metrics?<!-- .element: class="fragment" -->
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## Why collect metrics?
+
+						#### Logs tell you what's happening<!-- .element: class="fragment" -->
+						#### Metrics measure behaviour<!-- .element: class="fragment" -->
+						#### Measure improvement (or otherwise) of development change<!-- .element: class="fragment" -->
+						#### Adapt to behavioural runtime changes, e.g. autoscaling<!-- .element: class="fragment" -->
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## What metrics should you collect?
+
+						#### Resource utilisation<!-- .element: class="fragment" -->
+						#### Application level metrics<!-- .element: class="fragment" -->
+						#### Whatever else you think will enable you to improve<!-- .element: class="fragment" -->
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## Resource utilisation
+
+						#### CPU<!-- .element: class="fragment" -->
+						#### Memory<!-- .element: class="fragment" -->
+						#### Network<!-- .element: class="fragment" -->
+						#### Filesystem<!-- .element: class="fragment" -->
+						### Generic<!-- .element: class="fragment" -->
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## Enter cgroups
+
+						> Control groups is a Linux kernel feature that limits, accounts for and isolates the resource usage (CPU, memory, disk I/O, network, etc.) of a collection of processes.
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## cgroups
+
+						####<!-- .element: class="fragment" --> Used extensively by Docker
+						####<!-- .element: class="fragment" --> Namespace isolation
+						####<!-- .element: class="fragment" --> Resource limits
+						####<!-- .element: class="fragment" --> Configurable in Kubernetes/OpenShift manifests
+						###<!-- .element: class="fragment" --> Accounting
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## So how to get the metrics?
+
+						[![cAdvisor](images/cadvisor-logo.png)<!-- .element: class="fragment" width="250px" style="vertical-align: middle" -->](https://github.com/google/cadvisor)
+						[![Kubernetes](images/kubernetes-logo.svg)<!-- .element: class="fragment" width="250px" style="vertical-align: middle" -->](https://github.com/GoogleCloudPlatform/kubernetes)
 
 						NOTE:
-						- Demo Kibana logging
+						- Show what stats are available via kubelet (http://localhost:10255/stats/ http://localhost:10255/stats/demo/nginx-json-logging/b0a29642-0f85-11e5-a847-54ee7527188d/web)
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## Making metrics consumable
+
+						[![InfluxDB](images/influxdb-logo.png)<!-- .element: class="fragment" width="250px" style="vertical-align: middle" -->](https://github.com/grafana/grafana)
+						[![Grafana](images/grafana-logo.png)<!-- .element: class="fragment" width="250px" style="vertical-align: middle" -->](https://github.com/grafana/grafana)
+						<span><!-- .element: class="fragment" --> [Heapster](https://github.com/GoogleCloudPlatform/heapster)</span>
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## Deployment is easy
+
+						#### RC & service for InfluxDB <!-- .element: class="fragment" -->
+						#### RC & service for Grafana <!-- .element: class="fragment" -->
+						#### RC for Heapster <!-- .element: class="fragment" -->
+						#### Hooked up via Kubernetes service discovery<!-- .element: class="fragment" -->
+
+						Note:
+						- Demo Grafana metrics
+						- Resize grafana RC, show metrics being collected
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## Application metrics
+
+						#### Coming soon...<!-- .element: class="fragment" -->
+						#### Heapster has pluggable sources<!-- .element: class="fragment" -->
+						#### JMX (Jolokia) & DMR sources implemented<!-- .element: class="fragment" -->
+						#### More to come!<!-- .element: class="fragment" -->
 					</script>
 				</section>
 
 				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:" class="questions">
 					<script type="text/template">
-						## Questions
+						## Questions?
 						
 						#### http://fabric8.io/
 						#### http://www.openshift.org/
@@ -234,7 +356,7 @@
 				controls: true,
 				progress: true,
 				history: true,
-				center: false,
+				center: true,
 
 				transition: 'fade', // none/fade/slide/convex/concave/zoom
 
