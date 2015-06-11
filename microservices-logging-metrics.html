@@ -53,11 +53,14 @@
 
 				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
 					<script type="text/template">
-						## Thoughts on logging
+						## Logging
 
 						#### What a system is doing<!-- .element: class="fragment" -->
 						#### What happened<!-- .element: class="fragment" -->
 						### A record of actions & outcomes<!-- .element: class="fragment" -->
+
+						NOTE:
+						- 
 					</script>
 				</section>
 
@@ -85,7 +88,7 @@
 						#### Storage & routing managed by the system<!-- .element: class="fragment" -->
 						#### Write to local file<!-- .element: class="fragment" -->
 						#### Centralising<!-- .element: class="fragment" -->
-						#### Custom configuration per system<!-- .element: class="fragment" -->
+						### Custom configuration per system<!-- .element: class="fragment" -->
 
 						Note:
 						- Fault diagnosis involves logging on to server
@@ -107,7 +110,7 @@
 						####<!-- .element: class="fragment" --> Captured by execution environment
 						####<!-- .element: class="fragment" --> Routed by execution environment
 						####<!-- .element: class="fragment" --> Containers are ephemeral - so are logs
-						####<!-- .element: class="fragment" --> So we have to centralise for viewing & archiving
+						###<!-- .element: class="fragment" --> Centralise
 
 						Note:
 						- Need more context for stdout/stderr as no context derived from actual log file
@@ -119,54 +122,13 @@
 
 				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
 					<script type="text/template">
-						## Just to check...
-
-						#### You are of course running on <!-- .element: class="fragment" data-fragment-index="1" -->
-
-						[![Kubernetes](images/kubernetes-logo.svg)<!-- .element: class="fragment" data-fragment-index="1" height="250px" style="vertical-align: middle" -->](https://github.com/GoogleCloudPlatform/kubernetes)
-						[![OpenShift](images/openshift-logo.svg)<!-- .element: class="fragment" data-fragment-index="1" height="300px" style="vertical-align: middle" -->](https://github.com/openshift/origin)
-					</script>
-				</section>
-
-				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
-					<script type="text/template">
-						## So let's centralise...
-
-						[![Elasticsearch](images/elasticsearch-logo.svg)<!-- .element: class="fragment" width="250px" style="vertical-align: middle" -->](https://github.com/elastic/elasticsearch)
-						[![Fluentd](images/fluentd-logo.png)<!-- .element: class="fragment" width="250px" style="vertical-align: middle" -->](https://github.com/fluent/fluentd)
-						[![Kibana](images/kibana-logo.svg)<!-- .element: class="fragment" width="250px" style="vertical-align: middle" -->](https://github.com/elastic/kibana)
-
-						### Working upstream with Google <!-- .element: class="fragment" -->
-
-						Note:
-						- Fluentd for log collection & routing
-						- Elasticsearch for storage & indexing
-						- Enriched with Kubernetes metadata
-					</script>
-				</section>
-
-				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
-					<script type="text/template">
-						## Deployment is easy
-
-						#### RC & service for Elasticsearch<!-- .element: class="fragment" -->
-						#### RC & service for Kibana<!-- .element: class="fragment" -->
-						#### Static pod per node for Fluentd<!-- .element: class="fragment" -->
-						#### Hooked up via Kubernetes service discovery<!-- .element: class="fragment" -->
-
-						Note:
-						- Demo kibana simple log messages
-					</script>
-				</section>
-
-				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
-					<script type="text/template">
-						## Structured logging
+						## Contextual logging
 
 						#### Logs are for machines, not humans <!-- .element: class="fragment" -->
 						#### Context gives logs power <!-- .element: class="fragment" -->
 						#### Infer context by parsing log lines <!-- .element: class="fragment" -->
 						#### Log with context <!-- .element: class="fragment" -->
+						### Structured logging <!-- .element: class="fragment" -->
 					</script>
 				</section>
 
@@ -223,7 +185,73 @@
 
 				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
 					<script type="text/template">
-						## Centralised all your container logs in a technology agnostic way
+						## Traditional deployment logging context
+
+						#### Multithreaded systems<!-- .element: class="fragment" -->
+						#### Logs are interleaved<!-- .element: class="fragment" -->
+						#### Thread name, MDC, etc.<!-- .element: class="fragment" -->
+						### System aware of context<!-- .element: class="fragment" -->
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## Microservices logging context
+
+						#### Microservices are inherently distributed<!-- .element: class="fragment" -->
+						#### System unaware of deployment context<!-- .element: class="fragment" -->
+						#### Execution environment aware of context<!-- .element: class="fragment" -->
+						#### Added by microservice<!-- .element: class="fragment" -->
+						### Microservice composition<!-- .element: class="fragment" -->
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## Just to check...
+
+						#### You are of course running on <!-- .element: class="fragment" data-fragment-index="1" -->
+
+						[![Kubernetes](images/kubernetes-logo.svg)<!-- .element: class="fragment" data-fragment-index="1" height="250px" style="vertical-align: middle" -->](https://github.com/GoogleCloudPlatform/kubernetes)
+						[![OpenShift](images/openshift-logo.svg)<!-- .element: class="fragment" data-fragment-index="1" height="300px" style="vertical-align: middle" -->](https://github.com/openshift/origin)
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## So let's centralise...
+
+						[![Elasticsearch](images/elasticsearch-logo.svg)<!-- .element: class="fragment" width="250px" style="vertical-align: middle" -->](https://github.com/elastic/elasticsearch)
+						[![Fluentd](images/fluentd-logo.png)<!-- .element: class="fragment" width="250px" style="vertical-align: middle" -->](https://github.com/fluent/fluentd)
+						[![Kibana](images/kibana-logo.svg)<!-- .element: class="fragment" width="250px" style="vertical-align: middle" -->](https://github.com/elastic/kibana)
+
+						### Working upstream with Google <!-- .element: class="fragment" -->
+
+						Note:
+						- Fluentd for log collection & routing
+						- Elasticsearch for storage & indexing
+						- Enriched with Kubernetes metadata
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## Deployment is easy
+
+						#### RC & service for Elasticsearch<!-- .element: class="fragment" -->
+						#### RC & service for Kibana<!-- .element: class="fragment" -->
+						#### Static pod per node for Fluentd<!-- .element: class="fragment" -->
+						#### Hooked up via Kubernetes service discovery<!-- .element: class="fragment" -->
+						### Every container's log centralised<!-- .element: class="fragment" -->
+
+						Note:
+						- Demo kibana simple log messages
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## Centralised all your container logs
 
 						#### Can we do the same for your metrics?<!-- .element: class="fragment" -->
 					</script>
@@ -312,6 +340,7 @@
 						#### RC & service for Grafana <!-- .element: class="fragment" -->
 						#### RC for Heapster <!-- .element: class="fragment" -->
 						#### Hooked up via Kubernetes service discovery<!-- .element: class="fragment" -->
+						### Every container's metrics captured<!-- .element: class="fragment" -->
 
 						Note:
 						- Demo Grafana metrics
@@ -327,6 +356,18 @@
 						#### Heapster has pluggable sources<!-- .element: class="fragment" -->
 						#### JMX (Jolokia) & DMR sources implemented<!-- .element: class="fragment" -->
 						#### More to come!<!-- .element: class="fragment" -->
+						### Contributions<!-- .element: class="fragment" -->
+					</script>
+				</section>
+
+				<section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:">
+					<script type="text/template">
+						## In summary
+
+						#### Logs tell you what's happening<!-- .element: class="fragment" -->
+						#### Metrics measure how it happened<!-- .element: class="fragment" -->
+						#### Use microservics to capture<!-- .element: class="fragment" -->
+						### Centralise<!-- .element: class="fragment" -->
 					</script>
 				</section>
 
