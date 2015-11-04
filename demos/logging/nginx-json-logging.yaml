@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
     - name: web
-      image: nginx:json-logging
+      image: nginx-demo:json
       ports:
         - name: web
           containerPort: 80
