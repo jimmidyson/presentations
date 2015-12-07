@@ -1,11 +1,14 @@
-apiVersion: v1beta3
+apiVersion: v1
 kind: Pod
 metadata:
   name: nginx-json-logging
+  labels:
+    component: nginx
+    logging: json
 spec:
   containers:
     - name: web
-      image: nginx-demo:json
+      image: demo-nginx:json
       ports:
         - name: web
           containerPort: 80
